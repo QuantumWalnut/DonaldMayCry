@@ -6,7 +6,7 @@ public class PlatformController : MonoBehaviour
 {
     //PUBLIC VALS
     public int playerSpeed = 10;
-    public float playerJumpF = 120f;
+    public float playerJumpF = 8000f;
     public GameObject bulletToLeft, bulletToRight;
     public float fireRate = 0.5f;
     float nextFire = 0f;
@@ -19,24 +19,14 @@ public class PlatformController : MonoBehaviour
     //Anim
     Animator anim;
 
-
-
+    //
     public bool isGrounded;
-
-
-
-
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
         PlayerMove();
     }
-
-
-
-
 
     void PlayerMove()
     {
@@ -134,7 +124,7 @@ public class PlatformController : MonoBehaviour
 
     private void Melee()
     {
-        
+
 
 
     }
@@ -144,7 +134,7 @@ public class PlatformController : MonoBehaviour
     private void Fire()
     {
         bulletPos = transform.position;
-    
+
         if(faceRight){
             bulletPos += new Vector2(+1.321f, -0.266f);
             Instantiate(bulletToRight, bulletPos, new Quaternion(0,0,-90,0));

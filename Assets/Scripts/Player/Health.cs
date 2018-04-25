@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour {
 
-    public static bool isDead = false;
-    public static int health = 5;
+    public static bool isDead = false; // show whether player is in dead state or not
+    public static int health = 5; // displays how much health the player has left
 
     private int maxHealth = 5;
 
@@ -25,15 +25,14 @@ public class Health : MonoBehaviour {
         hairth4.gameObject.SetActive(true);
         hairth5.gameObject.SetActive(true);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-        
-        //UPDATE HEALTH
+
+        // Make sure the player's health does not exceed 5
         if (health > maxHealth){
             health = maxHealth;
         }
-
 
         if(health == 5){
             hairth1.gameObject.SetActive(true);
@@ -76,9 +75,6 @@ public class Health : MonoBehaviour {
             health = 5;
         }
 
-
-
-
         //DIE
         if(isDead){
             StartCoroutine("Die");
@@ -86,10 +82,9 @@ public class Health : MonoBehaviour {
         }
 	}
 
-    IEnumerator Die(){
-        SceneManager.LoadScene("Main");
-
-        yield return null;
-    }
+  IEnumerator Die(){
+      SceneManager.LoadScene("Main");
+      yield return null;
+  }
 
 }
